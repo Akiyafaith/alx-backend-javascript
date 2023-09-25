@@ -58,7 +58,7 @@ create an object that maps a department name to a list of employees using ES6 fe
 
 This task involves creating an iterator object to go through every employee in every department in an object.
 
-###101. Iterating Through Object
+### 101. Iterating Through Object
 
 create a function that iterates through an iterator object and returns employee names separated by '|'.
 
