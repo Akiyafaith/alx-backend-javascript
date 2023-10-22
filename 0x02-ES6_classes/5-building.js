@@ -1,19 +1,17 @@
-class Building {
-  constructor(sqft) {
-    if (this.constructor === Building) {
-      throw new TypeError('Cannot instantiate abstract class.');
-    }
-
-    this._sqft = sqft;
-
-    if (typeof this.evacuationWarningMessage !== 'function') {
-      throw new TypeError('Class extending Building must override evacuationWarningMessage');
-    }
+function Building(sqft) {
+  if (this.constructor === Building) {
+    throw new TypeError('Cannot instantiate abstract class.');
   }
 
-  get_sqft() {
-    return this._sqft;
+  this._sqft = sqft;
+
+  if (typeof this.evacuationWarningMessage !== 'function') {
+    throw new TypeError('Class extending Building must override evacuationWarningMessage');
   }
 }
+
+Building.prototype.get_sqft = function () {
+  return this._sqft;
+};
 
 export default Building;
