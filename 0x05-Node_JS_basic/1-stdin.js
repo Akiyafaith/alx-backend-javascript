@@ -20,4 +20,6 @@ function interactiveSession() {
   });
 }
 
+interactiveSession();
+
 module.exports = interactiveSession;
