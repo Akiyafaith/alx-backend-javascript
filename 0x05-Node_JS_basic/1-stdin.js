@@ -3,20 +3,20 @@ function interactiveSession() {
 
   process.stdin.setEncoding('utf8');
 
+  let name = '';
+
   process.stdin.on('data', (data) => {
-    const name = data.trim();
-    if (name) {
-      process.stdout.write(`Your name is: ${name}\n`);
+    name += data;
+  });
+
+  process.stdin.on('end', () => {
+    const trimmedName = name.trim();
+    if (trimmedName) {
+      process.stdout.write(`Your name is: ${trimmedName}\n`);
     } else {
       process.stdout.write('Your name is: \n');
     }
-
     process.stdout.write('This important software is now closing\n');
-    process.exit();
-  });
-
-  process.on('exit', () => {
-    process.stdout.write('\n');
   });
 }
 
