@@ -19,12 +19,9 @@ function countStudents(path) {
     const studentCounts = {};
 
     headers.forEach((field, index) => {
-      const fieldData = studentData.map((student) => student[index]);
-      const uniqueFieldData = [...new Set(fieldData.filter(Boolean))];
-      studentCounts[field] = {
-        count: uniqueFieldData.length,
-        list: uniqueFieldData.join(', '),
-      };
+      const fieldData = studentData.map((student) => student[index]).filter(Boolean);
+      const uniqueFieldData = [...new Set(fieldData)];
+      console.log(`Number of students in ${field}: ${uniqueFieldData.length}. List: ${uniqueFieldData.join(', ')}`);
     });
 
     Object.entries(studentCounts).forEach(([field, { count, list }]) => {
