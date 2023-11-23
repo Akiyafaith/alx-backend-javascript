@@ -1,18 +1,20 @@
 function calculateNumber(type, a, b) {
-  const aRound = Math.round(a);
-  const bRound = Math.round(b);
+  const roundedA = Math.round(a);
+  const roundedB = Math.round(b);
 
-  if (type === 'SUM') {
-    return aRound + bRound;
-  } if (type === 'SUBTRACT') {
-    return aRound - bRound;
-  } if (type === 'DIVIDE') {
-    if (bRound === 0) {
-      return 'Error';
-    }
-    return aRound / bRound;
+  switch (type) {
+    case 'SUM':
+      return roundedA + roundedB;
+    case 'SUBTRACT':
+      return roundedA - roundedB;
+    case 'DIVIDE':
+      if (roundedB === 0) {
+        return 'Error';
+      }
+      return roundedA / roundedB;
+    default:
+      throw new Error('Invalid type. Use SUM, SUBTRACT, or DIVIDE');
   }
-  throw new TypeError('Invalid type. Use SUM, SUBTRACT or DIVIDE');
 }
 
 module.exports = calculateNumber;
