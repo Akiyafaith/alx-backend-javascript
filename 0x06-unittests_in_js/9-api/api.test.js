@@ -6,6 +6,8 @@ const app = require('./api');
 
 chai.use(chaiHttp);
 
+const server = chai.request(app).keepOpen();
+
 describe('index page', () => {
   it('correct status code?', () => new Promise((done) => {
     request.get('http://localhost:7865', (error, response) => {
@@ -48,5 +50,5 @@ describe('cart Page', () => {
 });
 
 after(() => {
-  app.close();
+  server.close();
 });
